@@ -1,3 +1,4 @@
+// Product data for the shopping app
 export const products = [
   {
     id: 1,

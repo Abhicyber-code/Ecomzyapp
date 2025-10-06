@@ -1,14 +1,86 @@
+/**
+ * Spinner Component Styles
+ * 
+ * CSS animations and styling for the loading spinner component.
+ * Creates a smooth rotating circular loading indicator with conic gradient.
+ */
+
+/* Main spinner element styling */
 .spinner {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: conic-gradient(#0000 10%,#474bff);
-    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 0);
-    animation: spinner-zp9dbg 1s infinite linear;
- }
- 
- @keyframes spinner-zp9dbg {
-    to {
-       transform: rotate(1turn);
-    }
- }
+  /* Size of the spinner */
+  width: 56px;
+  height: 56px;
+  
+  /* Make it circular */
+  border-radius: 50%;
+  
+  /* Create gradient background for the spinning effect */
+  background: conic-gradient(#0000 10%, #16a34a); /* Green theme to match app */
+  
+  /* Create hollow center using mask */
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  
+  /* Apply rotation animation */
+  animation: spinner-rotate 1s infinite linear;
+}
+
+/* Keyframe animation for continuous rotation */
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(1turn); /* Complete 360 degree rotation */
+  }
+}
+
+/* Alternative spinner styles for different use cases */
+
+/* Smaller spinner variant */
+.spinner-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, #16a34a);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 4px), #000 0);
+  mask: radial-gradient(farthest-side, #0000 calc(100% - 4px), #000 0);
+  animation: spinner-rotate 1s infinite linear;
+}
+
+/* Larger spinner variant */
+.spinner-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, #16a34a);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 12px), #000 0);
+  mask: radial-gradient(farthest-side, #0000 calc(100% - 12px), #000 0);
+  animation: spinner-rotate 1s infinite linear;
+}
+
+/* Pulsing loading dots alternative */
+.loading-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.loading-dots div {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #16a34a;
+  animation: loading-dots-pulse 1.4s ease-in-out infinite both;
+}
+
+.loading-dots div:nth-child(1) { animation-delay: -0.32s; }
+.loading-dots div:nth-child(2) { animation-delay: -0.16s; }
+.loading-dots div:nth-child(3) { animation-delay: 0; }
+
+@keyframes loading-dots-pulse {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
