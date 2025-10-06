@@ -14,7 +14,7 @@ const Home = () => {
       const data = await res.json();
       setPosts(data);
     } catch (error) {
-      console.log("Error occurred", error);
+      console.log("Error fetching products:", error);
       setPosts([]);
     }
     setLoading(false);
@@ -25,9 +25,11 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="min-h-screen bg-gray-50">
       {loading ? (
-        <Spinner />
+        <div className="flex justify-center items-center min-h-[80vh]">
+          <Spinner />
+        </div>
       ) : posts.length > 0 ? (
         <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
                        gap-5 gap-y-8 max-w-6xl p-6 mx-auto my-7 min-h-[80vh]">
@@ -36,8 +38,8 @@ const Home = () => {
           ))}
         </div>
       ) : (
-        <div className="flex justify-center items-center">
-          <p>No Data Found</p>
+        <div className="flex justify-center items-center min-h-[80vh]">
+          <p className="text-gray-600 text-lg">No products available at the moment</p>
         </div>
       )}
     </div>

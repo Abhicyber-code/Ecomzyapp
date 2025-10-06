@@ -5,17 +5,19 @@ import Cart from "./pages/Cart";
 
 function App() {
   return (
-    <div>
+    <div className="min-h-screen bg-gray-50">
       {/* Header with navigation */}
-      <div className="bg-slate-900">
+      <div className="bg-slate-900 sticky top-0 z-50">
         <Navbar />
       </div>
 
       {/* Main content pages */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </main>
     </div>
   );
 }

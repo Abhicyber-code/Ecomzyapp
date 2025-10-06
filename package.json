@@ -1,7 +1,10 @@
 {
-  "name": "shopping-cart",
-  "version": "0.1.0",
+  "name": "ecomzy-shopping-cart",
+  "version": "1.0.0",
   "private": true,
+  "description": "A modern React shopping cart application with Redux state management",
+  "author": "Abhicyber-code",
+  "keywords": ["react", "redux", "shopping-cart", "ecommerce", "tailwindcss"],
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",

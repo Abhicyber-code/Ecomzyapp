@@ -9,34 +9,45 @@ const CartItem = ({ item }) => {
 
   const removeFromCart = () => {
     dispatch(remove(item.id));
-    toast.error("Item Removed");
+    toast.error("Item Removed from Cart");
   };
 
   return (
-    <div className="p-4 border-b-2 last:border-none border-slate-700">
+    <div className="p-4 border-b-2 last:border-none border-slate-300 hover:bg-gray-50 transition-colors">
       <div className="flex justify-between py-3.5 px-2.5 gap-14 flex-col md:flex-row">
         
         <div className="md:w-[30%] w-full flex justify-center items-center">
-          <img src={item.image} alt="" className="w-[40%] md:w-[50%] lg:w-full" />
+          <img 
+            src={item.image} 
+            alt={item.title} 
+            className="w-[40%] md:w-[50%] lg:w-full object-contain hover:scale-105 transition-transform"
+            loading="lazy" 
+          />
         </div>
         
         <div className="md:w-[70%] w-full flex flex-col gap-5">
-          <h1 className="text-xl font-[600] text-slate-700">{item.title}</h1>
-          <h1 className="text-slate-700">
-            {item.description.split(" ").slice(0, 15).join(" ") + "..."}
+          <h1 className="text-xl font-[600] text-slate-700 hover:text-slate-900 transition-colors">
+            {item.title}
           </h1>
-          <div className="flex justify-between">
+          <p className="text-slate-600 text-sm leading-relaxed">
+            {item.description.split(" ").slice(0, 15).join(" ") + "..."}
+          </p>
+          
+          <div className="flex justify-between items-center">
             <p className="font-bold text-[#16a34a] text-lg">${item.price}</p>
-            <div
+            
+            <button
               onClick={removeFromCart}
               className="w-10 h-10 rounded-full bg-red-200 flex justify-center items-center
-                       hover:bg-red-400 group transition-all cursor-pointer"
+                       hover:bg-red-400 group transition-all duration-300 cursor-pointer
+                       focus:outline-none focus:ring-2 focus:ring-red-300"
+              aria-label={`Remove ${item.title} from cart`}
             >
               <MdDeleteSweep 
                 fontSize={25} 
-                className="group-hover:text-white text-red-800 transition-all" 
+                className="group-hover:text-white text-red-800 transition-all duration-300" 
               />
-            </div>
+            </button>
           </div>
         </div>
       </div>

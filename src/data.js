@@ -1,5 +1,8 @@
 // Product data for the shopping app
+// Data fetched from FakeStore API for demo purposes
+
 export const products = [
+  // Men's Clothing Section
   {
     id: 1,
     title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
